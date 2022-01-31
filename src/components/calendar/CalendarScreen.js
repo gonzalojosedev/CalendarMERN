@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import {Calendar, momentLocalizer} from 'react-big-calendar';
 import moment from 'moment';
 
+
 import { Navbar } from '../ui/Navbar';
 import {messages} from '../../helpers/calendar-messengers-es';
 import CalendarEvent from './CalendarEvent';
+import CalendarModal from './CalendarModal';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es'
@@ -22,6 +24,9 @@ const events = [{
     name: 'Gonzalo',
   }
 }]
+
+
+
 export const CalendarScreen = () => {
 
   const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'month');
@@ -70,6 +75,8 @@ export const CalendarScreen = () => {
         event: CalendarEvent,
       }}
     />
+
+    <CalendarModal />
     </div>
     );
 };
